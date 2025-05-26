@@ -28,7 +28,7 @@ const TaskContainer = () => {
         const isChecked = !task.completed;
         const body = { completed: isChecked};
         await patchTask(id, body);
-        const updatedTasks = filteredTasks.map(t => 
+        const updatedTasks = tasks.map(t => 
             t.id === id ? { ...t, completed: isChecked } : t
         );
         setTasks(updatedTasks);
