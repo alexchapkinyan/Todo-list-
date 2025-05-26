@@ -46,14 +46,6 @@ Make sure you have the following installed on your machine:
    npm install
 
 
-Create two .env files:
-
-One inside the server/ folder with the following content:
-PORT=5000
-
-Another one in the root directory with the following content:
-PORT=3000
-
 Start the project:
 npm start
 This will run both the frontend and backend servers concurrently.
