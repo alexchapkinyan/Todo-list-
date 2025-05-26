@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# 📋 Todo List App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the **Todo List App** — a modern and minimal task management tool built using a powerful full-stack JavaScript stack.
 
-## Available Scripts
+## 🚀 Technologies Used
 
-In the project directory, you can run:
+- **React** – for building dynamic and interactive user interfaces
+- **Recoil** – for state management within React
+- **Sass (SCSS)** – for modular and maintainable styling
+- **Framer Motion** – for smooth animations and transitions
+- **Node.js** – backend runtime environment
+- **Express.js** – for handling backend routing and API logic
+- **dotenv** – for managing environment variables
 
-### `npm start`
+## 📁 Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+project-root/
+│
+├── public/ # React frontend
+│ └── ...
+│
+├── server/ # Express backend
+│ ├── .env # Contains backend PORT variable
+│ └── ...
+│
+├── src/ # React frontend
+│ └── ...
+│
+├── .env # Global env file for frontend PORT
+├── package.json
+└── README.md
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## ⚙️ Requirements
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Make sure you have the following installed on your machine:
 
-### `npm run build`
+- [Node.js](https://nodejs.org/)
+- npm or yarn
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Setup Instructions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Install dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm install
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Create two .env files:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+One inside the server/ folder with the following content:
+PORT=5000
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Another one in the root directory with the following content:
+PORT=3000
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Start the project:
+npm start
+This will run both the frontend and backend servers concurrently.
 
-## Learn More
+🌟 Features
+✅ Add new tasks
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+✏️ Edit existing tasks
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🗑️ Delete tasks
 
-### Code Splitting
+🔄 Mark tasks as complete 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🌀 Beautiful UI animations with Framer Motion
 
-### Analyzing the Bundle Size
+⚡ Fast and lightweight Express.js API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+📦 Build for Production
+To build the frontend for production:
 
-### Making a Progressive Web App
+🤝 Contributing
+This is an open-source project. Feel free to fork, open issues, or contribute new features and improvements.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thanks for checking out this project! 🎉

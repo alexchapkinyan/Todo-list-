@@ -1,0 +1,19 @@
+.container {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #6d63ff;
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    &:hover {
+        cursor: pointer;
+    }
+    svg {
+        stroke-width: 3;
+    }
+}

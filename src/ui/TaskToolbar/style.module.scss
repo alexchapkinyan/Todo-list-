@@ -1,0 +1,32 @@
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 30px;
+    .search {
+        height: 40px;
+        display: grid;
+        grid-template-columns: 10fr 1fr;
+        border: 1px solid white;
+        border-radius: 10px;
+        overflow: hidden;    
+        color: white;
+        input {
+            padding-left: 20px;
+            font-size: 16px;
+            background-color: transparent;  
+            border: none;
+            outline: none;
+            color: white;
+
+        }
+        .searchIcon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}

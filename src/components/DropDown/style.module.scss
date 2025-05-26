@@ -1,0 +1,49 @@
+.container {
+        border-radius: 5px;
+        background-color: #6d63ff;
+        position: relative;
+        display: flex;
+        align-items: center;
+        .dropBtn {
+            background-color: transparent;
+            color: white;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            padding-left: 7px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .dropDownMain {
+            position: absolute;
+            background-color: white;
+            list-style-type: none;
+            width: 100%;
+            border-radius: 5px;
+            bottom: -100px;
+            left: 0;
+            z-index: 2;
+            overflow: hidden;
+            li {
+                color: #6d63ff;
+                padding: 6px 0 6px 3px ;
+                font-size: 16px;
+                &:hover {
+                    cursor: pointer;
+                    background-color: rgb(225, 224, 224);
+                }
+            }
+        }
+        .selectIcon {
+            z-index: 100;
+            color: white;
+            position: absolute;
+            right: 5px;
+            pointer-events: none;
+            width: 20px;
+        }
+    }

@@ -1,0 +1,68 @@
+.container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(128, 128, 128, 0.367);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding-top: 100px;
+    z-index: 1000;
+    .modal {
+        width: 500px;
+        height: 300px;
+        border-radius: 10px;
+        border: 1px solid white;
+        background-color: #1E1E1E;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        padding-top: 20px;
+        gap: 20px;
+        position: relative;
+        .input {
+            width: 90%;
+            border: 1px solid white;
+            color: white;
+            height: 40px;
+            border-radius: 10px;
+            padding-left: 15px;
+            outline: none;
+            font-size: 16px;
+            background-color: transparent;
+        }
+        .cancel, .apply {
+            width: 110px;
+            border: none;
+            height: 40px;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 20px;
+            transition: 0.4s;
+        }
+        .cancel {
+            left: 20px;
+            background-color: transparent;
+            border: 1px solid #6d63ff;
+            color: #6d63ff;
+            &:hover {
+                cursor: pointer;
+                background-color: #6d63ff;
+                color: #1E1E1E;
+            }
+        }
+        .apply {
+            right: 20px;
+            background-color: #6d63ff;
+            color: white;
+            &:hover {
+                cursor: pointer;
+                background-color: white;
+                color: #6d63ff;
+            }
+        }
+    }
+}

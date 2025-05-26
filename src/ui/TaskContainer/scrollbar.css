@@ -1,0 +1,8 @@
+.simplebar-scrollbar:before {
+  background-color: #6d63ff !important;
+  border-radius: 4px;
+}
+
+.simplebar-track.simplebar-vertical {
+  width: 16px !important; 
+}
