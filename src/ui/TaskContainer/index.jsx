@@ -8,6 +8,8 @@ import {  TasksInView, TasksState, FilteredTasksSelector, SearchTerm } from '../
 import { useEffect } from 'react';
 import { fetchTasks, patchTask } from '../../api/API';
 import { AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import Empty from '../../components/Empty';
 
 
 const TaskContainer = () => {
@@ -34,16 +36,20 @@ const TaskContainer = () => {
         setTasks(updatedTasks);
     }
 
-    const filteredBySearch = filteredTasks.filter(t => t.task.toLowerCase().includes(searchTerm))
-    console.log(searchTerm)
+    const filteredBySearch = filteredTasks.filter(t => t.task.toLowerCase().includes(searchTerm));
+
     const pendingTasks = filteredBySearch?.map(task => 
         <TaskItem key={task.id} data={task} onToggle={onToggle}/>
-    )
+    );
 
     return (
         <SimpleBar data-simplebar className={styles.container}>
             <AnimatePresence>
-                {pendingTasks}
+                {
+                    (pendingTasks?.length ?? 0)  === 0 ?
+                    <Empty /> :
+                    pendingTasks
+                }
             </AnimatePresence>
         </SimpleBar>
     );
