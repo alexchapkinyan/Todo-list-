@@ -22,6 +22,7 @@ export const ModalState = atom({
         purpose: '',
         placeholder: '',
         id: '',
+        value: '',
         isOpened: false
     }
 });
