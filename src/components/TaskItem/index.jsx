@@ -22,6 +22,7 @@ const TaskItem = ({ data, onToggle }) => {
             purpose: 'edit',
             placeholder: 'Input your changes...',
             id: data.id,
+            value: data.task,
             isOpened: true
         })
     }

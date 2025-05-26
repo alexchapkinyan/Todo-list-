@@ -20,6 +20,7 @@ const Modal = () => {
             purpose: '',
             placeholder: '',
             id: '',
+            value: '',
             isOpened: false
         });
     };
@@ -35,6 +36,12 @@ const Modal = () => {
 
         return () => window.removeEventListener('keydown', closeModal)
     }, []);
+
+    useEffect(() => {
+        if(modalState.value) {
+            setInputValue(modalState.value);
+        };
+    }, [modalState.value]);
 
     const editTask = async () => {
         const changedTask = inputValue;
@@ -86,6 +93,7 @@ const Modal = () => {
                         <motion.input 
                             type='text' 
                             placeholder={modalState.placeholder ?? ''} 
+                            value={inputValue}
                             className={styles.input} 
                             onChange={(e) => setInputValue(e.target.value)}
                             animate={ isEmpty ? { x: [-5, 5, -5, 5, 0] } : {}}
