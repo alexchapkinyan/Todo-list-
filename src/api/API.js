@@ -1,10 +1,11 @@
+import axios from "axios";
+
 const BASE_URL = 'http://localhost:5004/tasks';
 
 export const fetchTasks = async () => {
     try {
-        const response = await fetch(BASE_URL);
-        const data = await response.json();
-        return data
+        const response = await axios.get(BASE_URL);
+        return response.data
     } catch (error) {
         console.error(error);
         throw error;
@@ -13,12 +14,10 @@ export const fetchTasks = async () => {
 
 export const postNewTask = async (data) => {
     try {
-        await fetch(BASE_URL, {
-            method: 'POST',
+        await axios.post(BASE_URL, data, {
             headers: {
                 'content-type': 'application/json'
-            },
-            body: JSON.stringify(data)
+            }
         });
     } catch (error) {
         console.error(error);
@@ -29,9 +28,7 @@ export const postNewTask = async (data) => {
 
 export const deleteTask = async (id) => {
     try {
-        const res = await fetch(`${BASE_URL}/${id}`, {
-            method: 'DELETE'
-        });
+        await axios.delete(`${BASE_URL}/${id}`);
     } catch (error) {
         console.error(error);
         throw error
@@ -40,12 +37,10 @@ export const deleteTask = async (id) => {
 
 export const patchTask = async (id, data) => {
     try {
-        await fetch(`${BASE_URL}/${id}`, {
-            method: 'PATCH',
+        await axios.patch(`${BASE_URL}/${id}`, data, {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(data)
         });
     } catch (error) {
         console.error('Faile to update tasks on server:', error);

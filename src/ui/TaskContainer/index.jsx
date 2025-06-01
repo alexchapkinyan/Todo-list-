@@ -5,24 +5,23 @@ import styles from './style.module.scss';
 import TaskItem from '../../components/TaskItem';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import {  TasksInView, TasksState, FilteredTasksSelector, SearchTerm } from '../../storage';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchTasks, patchTask } from '../../api/API';
 import { AnimatePresence } from 'framer-motion';
-import { motion } from 'framer-motion';
 import Empty from '../../components/Empty';
+import Spinner from '../../components/Spinner';
 
 
 const TaskContainer = () => {
 
 
-    const [tasksVariant] = useRecoilState(TasksInView);
     const [tasks, setTasks] = useRecoilState(TasksState);
-    const [searchTerm, setSearchTerm] = useRecoilState(SearchTerm);
+    const [searchTerm] = useRecoilState(SearchTerm);
     const filteredTasks = useRecoilValue(FilteredTasksSelector);
-
+    const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
-        fetchTasks().then(data => setTasks(data));
+        fetchTasks().then(data => setTasks(data)).finally(() => setIsLoaded(true));
     }, []);
 
     const onToggle = async (id) => {
@@ -38,7 +37,7 @@ const TaskContainer = () => {
 
     const filteredBySearch = filteredTasks.filter(t => t.task.toLowerCase().includes(searchTerm));
 
-    const pendingTasks = filteredBySearch?.map(task => 
+    const pendingTasks = filteredBySearch.map(task => 
         <TaskItem key={task.id} data={task} onToggle={onToggle}/>
     );
 
@@ -46,7 +45,9 @@ const TaskContainer = () => {
         <SimpleBar data-simplebar className={styles.container}>
             <AnimatePresence>
                 {
-                    (pendingTasks?.length ?? 0)  === 0 ?
+                    !isLoaded ?
+                    <Spinner /> :
+                    pendingTasks.length === 0 ?
                     <Empty /> :
                     pendingTasks
                 }

@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import fs from 'fs';
+import fs from 'fs/promises';
 import express from 'express';
 import cors from 'cors';
 
@@ -10,15 +10,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/tasks', (req, res) => {
-    const data = fs.readFileSync('./data.json', 'utf-8');
+
+app.get('/tasks', async (req, res) => {
+    const data = await fs.readFile('./data.json', 'utf-8');
     res.send(data);
 });
 
-app.patch('/tasks/:id', (req, res) => {
+app.patch('/tasks/:id', async  (req, res) => {
     const taskId = req.params.id
 
-    const data = fs.readFileSync('./data.json', 'utf-8');
+    const data = await fs.readFile('./data.json', 'utf-8');
     const tasks = JSON.parse(data);
     const task = tasks.find(t => t.id === taskId);
 
@@ -28,17 +29,18 @@ app.patch('/tasks/:id', (req, res) => {
         t.id === taskId ? { ...t, ...req.body } : t
     );
 
-    fs.writeFileSync('./data.json', JSON.stringify(updatedTasks));
+    await fs.writeFile('./data.json', JSON.stringify(updatedTasks));
 
     res.json(task);
 });
 
 
-app.post('/tasks', (req, res) => {
+app.post('/tasks', async (req, res) => {
     const newTask = req.body;
-    const data = JSON.parse(fs.readFileSync('./data.json', 'utf-8'));
+    const rawData = await fs.readFile('./data.json', 'utf-8');
+    const data = JSON.parse(rawData);
     data.push(newTask);
-    fs.writeFileSync('./data.json', JSON.stringify(data));
+    await fs.writeFile('./data.json', JSON.stringify(data));
     res.json(newTask);
 });
 
@@ -46,10 +48,10 @@ app.delete('/tasks/:id', async (req, res) => {
     const taskId = req.params.id;
 
     try {
-        const file = fs.readFileSync('./data.json', 'utf-8');
+        const file = await fs.readFile('./data.json', 'utf-8');
         const data = JSON.parse(file);
         const newData = data.filter(task => !(task.id === taskId));
-        fs.writeFileSync('./data.json', JSON.stringify(newData));
+        await fs.writeFile('./data.json', JSON.stringify(newData));
         res.status(200).json({ message: 'Task deleted', data: newData });
     } catch (error) {
         console.error('Delete failed', error);
