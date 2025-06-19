@@ -50,18 +50,18 @@ Start the project:
 npm start
 This will run both the frontend and backend servers concurrently.
 
- Features
- Add new tasks
+  Features
+ • Add new tasks
 
- Edit existing tasks
+ • Edit existing tasks
 
- Delete tasks
+ • Delete tasks
 
- Mark tasks as complete 
+ • Mark tasks as complete 
 
- Beautiful UI animations with Framer Motion
+ • Beautiful UI animations with Framer Motion
 
-Fast and lightweight Express.js API
+ • Fast and lightweight Express.js API
 
 Build for Production
 To build the frontend for production:
