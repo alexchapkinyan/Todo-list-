@@ -31,7 +31,7 @@ project-root/
 └── README.md
 
 
-## ⚙ Requirements
+##  Requirements
 
 Make sure you have the following installed on your machine:
 
