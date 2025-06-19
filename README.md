@@ -61,7 +61,7 @@ This will run both the frontend and backend servers concurrently.
 
  Beautiful UI animations with Framer Motion
 
-⚡ Fast and lightweight Express.js API
+Fast and lightweight Express.js API
 
 Build for Production
 To build the frontend for production:
@@ -69,4 +69,4 @@ To build the frontend for production:
 Contributing
 This is an open-source project. Feel free to fork, open issues, or contribute new features and improvements.
 
-Thanks for checking out this project! 🎉
+Thanks for checking out this project! 
