@@ -47,12 +47,6 @@
             transition: 0.2s ;
         }
     }
-    
-    &:hover {
-        .icons  {
-            opacity: 1;
-        }
-    }
     .checkbox:checked ~ .note {
         text-decoration: line-through;
         color: gray;
@@ -61,8 +55,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        transition: opacity  0.2s;
-        opacity: 0;
+        transition:  0.2s;
         svg {
             width: 15px;
             color: rgba(255, 255, 255, 0.741);

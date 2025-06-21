@@ -27,6 +27,11 @@ export const ModalState = atom({
     }
 });
 
+export const UserDataState = atom({
+    key: 'UserEmailState',
+    default: {}
+});
+
 export const FilteredTasksSelector = selector({
     key: 'FilteredTasksSelector',
     get: ({ get }) => {

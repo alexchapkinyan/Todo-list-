@@ -1,17 +1,18 @@
 import styles from './style.module.scss';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ModalState, TasksState } from '../../storage';
-import { useRecoilState } from 'recoil';
-import { useEffect, useRef, useState } from 'react';
-import { v4 } from 'uuid';
-import { postNewTask, fetchTasks, patchTask } from '../../api/API';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useEffect, useState } from 'react';
+import useTodo from '../../hooks/useTodos';
 
 const Modal = () => {
 
     const [modalState, setModalState] = useRecoilState(ModalState);
-    const [tasks, setTasks] = useRecoilState(TasksState);
+    const setTasks = useSetRecoilState(TasksState);
     const [isEmpty, setIsEmpty] = useState(false);
     const [inputValue, setInputValue] = useState('');
+
+    const { addTodo, getTodos, editTodo } = useTodo();
 
     const clearModal = () => {
         setInputValue('')
@@ -47,21 +48,18 @@ const Modal = () => {
         const changedTask = inputValue;
         const body = { task: changedTask }
         if(changedTask) {
-            await patchTask(modalState.id, body);
-            await fetchTasks().then(data => setTasks(data));
+            await editTodo(modalState.id, body);
+            await getTodos().then(data => setTasks(data.data));
             clearModal();
-        }
-    }
+        };
+    };
 
     const addNewTask =  async () => {
-        const newTask = {
-            id: v4(),
-            task: inputValue,
-            completed: false
-        }
         if(inputValue) {
-            await postNewTask(newTask)
-            await fetchTasks().then(data => setTasks(data));
+            const task = inputValue
+            const body = { task: task }
+            await addTodo(body);
+            await getTodos().then(data => setTasks(data.data));
             clearModal();
         } else {
             setIsEmpty(true);

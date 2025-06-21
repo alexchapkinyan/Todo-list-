@@ -1,0 +1,44 @@
+.container {
+    position: fixed;
+    top: 15px;
+    left: 15px; 
+    .icon {
+        background-color: #6d63ff;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    .dropdown {
+        z-index: 100;
+        color: black;
+        background-color: white;
+        min-width: 150px;
+        position: absolute;
+        left: 0px;
+        top: 45px;
+        border-radius: 5px;
+        font-size: 14px;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        button {
+            border: none;
+            background-color: #6d63ff;
+            color: white;
+            height: 30px;
+            border-radius: 5px;
+            &:hover {
+                cursor: pointer;
+                background-color: #5f54fc;
+            }
+        }
+    }
+}
