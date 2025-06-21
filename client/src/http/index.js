@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5007';
+const API_URL = 'https://todo-list-3psq.onrender.com';
 
 
 const api = axios.create({
@@ -19,7 +19,7 @@ api.interceptors.response.use((config) => {
     const originalRequest = err.config;
     if(err.response.status == 401) {
         try {
-            const response = await axios.get(`http://localhost:5007/auth/refresh`, { withCredentials: true });
+            const response = await axios.get(`${API_URL}/auth/refresh`, { withCredentials: true });
             localStorage.setItem('token', response.data.accessToken);
             return api.request(originalRequest);
         } catch (error) {
