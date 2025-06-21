@@ -2,6 +2,10 @@
 
 Welcome to the **Todo List App** — a modern and minimal task management tool built using a powerful full-stack JavaScript stack.
 
+## Demo
+👉 [Live App](https://todo-list-eys1.vercel.app/)
+
+
 ##  Technologies Used
 
 - **React** – for building dynamic and interactive user interfaces
