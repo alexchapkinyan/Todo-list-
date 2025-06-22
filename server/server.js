@@ -12,7 +12,7 @@ const port = process.env.PORT || 5008;
 const app = express();
 
 app.use(cors({
-    origin: 'https://todo-list-eys1.vercel.app',
+    origin: process.env.CLIENT_API,
     credentials: true
 }));
 app.use(express.json());
