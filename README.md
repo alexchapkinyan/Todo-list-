@@ -62,7 +62,7 @@ project-root/
 ├── package.json # Root project dependencies and scripts
 ├── package-lock.json # Root lockfile
 └── README.md # Project documentation
-
+```
 
 ## Requirements
 
@@ -80,6 +80,7 @@ Make sure you have the following installed on your machine:
 
 ```bash
 npm install
+```
 
 3. Create `.env` files in the root and server directories based on `.env.example`
 4. Start the development environment: 
