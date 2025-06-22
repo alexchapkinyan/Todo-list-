@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'sonner';
 
 const API_URL = 'https://todo-list-3psq.onrender.com';
 
@@ -23,7 +24,7 @@ api.interceptors.response.use((config) => {
             localStorage.setItem('token', response.data.accessToken);
             return api.request(originalRequest);
         } catch (error) {
-            console.log('Not Authorized');
+            toast.error('Not Authorized');
         }
     };
     return Promise.reject(err);

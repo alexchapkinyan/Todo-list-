@@ -3,6 +3,7 @@ import styles from './style.module.scss';
 import { EyeOff, Eye } from 'lucide-react';
 import { useParams, Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import { toast } from 'sonner';
 
 const LoginForm = () => {
 
@@ -30,7 +31,7 @@ const LoginForm = () => {
             };
             navigate(from, { replace: true });
         } catch (error) {
-            console.log('Login failed:', error.message);
+            toast.error(error.message);
         };
     };
 

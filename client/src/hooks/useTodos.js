@@ -39,7 +39,6 @@ const useTodo = () => {
      const editTodo = async (id, body) => {
         try {
             const response = await api.patch(`/todos/edit/${id}`, body);
-            console.log(response)
             return response;
         } catch (error) {
             const errorMessage = errorParser(error);
